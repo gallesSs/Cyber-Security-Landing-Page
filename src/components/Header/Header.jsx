@@ -1,39 +1,41 @@
 import React, {useState} from 'react';
-import {slide as Menu} from 'react-burger-menu';
-import s from './Header.module.css';
+import BurgerMenu from '../BurgerMenu/BurgerMenu.jsx';
+import s from "./Header.module.css";
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [closing, setClosing] = useState(false);
 
-	const handleMenuClick = () => {
+	const handleOpen = () => {
 		setMenuOpen(true);
+		setClosing(false); // просто показываем сразу
 	};
 
-	const handleCloseClick = () => {
-		setMenuOpen(false)
-	}
+	const handleClose = () => {
+		setClosing(true); // начинаем анимацию
+		setTimeout(() => {
+			setMenuOpen(false); // удаляем через 300ms
+			setClosing(false);
+		}, 300);
+	};
 
 	return (
-		<div>
-			<header className={s.header}>
-				{!menuOpen && <h1 onClick={handleMenuClick} style={{cursor: 'pointer'}}>123</h1>}
-
-				<Menu
-					right
-					isOpen={menuOpen}
-					onOpen={handleMenuClick}
-					onClose={handleCloseClick}
-					customBurgerIcon={false} // отключаем стандартную иконку
-				>
-					<button onClick={handleCloseClick} style={{marginBottom: '20px'}}>
-						✕ Закрыть
-					</button>
-					<a id="home" className="menu-item" href="/">Home</a>
-					<a id="about" className="menu-item" href="/about">About</a>
-					<a id="contact" className="menu-item" href="/contact">Contact</a>
-				</Menu>
-			</header>
-		</div>
+		<header className={s.header}>
+			<img className={s.logo} src="/Header/Logo.png" alt="logo"/>
+			<div className={s.mobileMenu}>
+				{!menuOpen && <img src="/Header/Menubar.svg" alt="" onClick={handleOpen}/>}
+				{menuOpen && <BurgerMenu handleClose={handleClose} isClosing={closing}/>}
+			</div>
+			<nav className={s.nav}>
+				<ul className={s.navList}>
+					<li className={s.listItem}><a href="">Demos</a></li>
+					<li className={s.listItem}><a href="">About</a></li>
+					<li className={s.listItem}><a href="">Blog</a></li>
+					<li className={s.listItem}><a href="">Pages</a></li>
+					<li className={s.listItem}><a href="">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
 	);
 };
 
