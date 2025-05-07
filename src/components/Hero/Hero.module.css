@@ -1,56 +1,60 @@
 .hero {
-	background-image: url("/public/Hero/BG.png");
+	background-image: url("/public/Hero/BG-mobile.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-clip: content-box;
 	width: 100%;
 	height: 100%;
+	margin-bottom: 100px;
 }
 
 .container {
-	display: grid;
-	grid-template-areas: "img upText"
-"img headerText"
-"img info"
-"img btn";
-	padding: 143px 153px;
-	column-gap: 50px;
 	justify-content: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 16px;
+	padding: 50px 16px 170px 16px;
 }
 
 .img {
-	max-width: 609px;
+	max-width: 343px;
 	grid-area: img;
 }
 
 .upText {
 	color: #F43F5E;
+	text-align: center;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 28px; /* 140% */
 	grid-area: upText;
+	margin-bottom: 4px;
 }
 
 .headerText {
 	color: #12141D;
-	font-size: 80px;
+	text-align: center;
+	font-size: 40px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 80px; /* 100% */
+	line-height: 52px; /* 130% */
 	letter-spacing: -1px;
+	max-width: 343px;
 	grid-area: headerText;
-	min-width: 636px;
 }
 
 .info {
 	color: #12141D;
+	text-align: center;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px; /* 160% */
+	max-width: 343px;
 	grid-area: info;
-	max-width: 636px;
+	margin-bottom: 14px;
+	opacity: 0.7;
 }
 
 .btn {
@@ -65,6 +69,7 @@
 	border-radius: 3px;
 	background: #EF4444;
 	grid-area: btn;
+	transition: background 0.35s ease-in-out;
 }
 
 .btnText {
@@ -80,4 +85,51 @@
 	width: 18px;
 	height: 18px;
 	color: #FFF;
+}
+
+.btn:hover {
+	background-color: #a50000
+}
+
+@media screen and (min-width: 1440px) {
+	.container {
+		display: grid;
+		grid-template-areas: "img upText"
+		"img headerText"
+		"img info"
+		"img btn";
+		padding: 143px 153px;
+		column-gap: 50px;
+	}
+
+	.img {
+		min-width: 643px;
+	}
+
+	.headerText {
+		font-size: 80px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 80px; /* 100% */
+		letter-spacing: -1px;
+		min-width: 636px;
+		text-align: left;
+	}
+
+	.upText {
+		text-align: left;
+	}
+
+	.info {
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 32px; /* 160% */
+		min-width: 636px;
+		text-align: left;
+	}
+
+	.hero {
+		background-image: url("/public/Hero/BG.png");
+	}
 }
