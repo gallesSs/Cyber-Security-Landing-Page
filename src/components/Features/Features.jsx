@@ -4,7 +4,8 @@ import s from "./Features.module.css"
 
 const Features = () => {
 	return (
-		<ul className={s.list}>
+		<section className={s.features}>
+			<ul className={s.list}>
 			{data.map((item) => {
 				return (
 					<li className={s.item} key={item.id}>
@@ -12,7 +13,8 @@ const Features = () => {
 					</li>
 				)
 			})}
-		</ul>
+		</ul></section>
+
 	);
 };
 

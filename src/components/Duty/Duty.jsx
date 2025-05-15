@@ -2,7 +2,7 @@ import s from "./Duty.module.css"
 
 const Duty = () => {
 	return (
-		<section className={s.container}>
+		<section className={s.duty}>
 			<ul className={s.list}>
 				<li className={s.img}>
 					<picture>

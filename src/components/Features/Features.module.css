@@ -1,9 +1,7 @@
 .list {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 0 30px 30px 30px;
 	gap: 30px;
 }
 
@@ -19,6 +17,10 @@
 
 .item:nth-child(3) {
 	border-bottom: 0;
+}
+
+.item p {
+	max-width: 312px
 }
 
 @media screen and (min-width: 768px) {
@@ -40,6 +42,15 @@
 
 	h2, p {
 		text-align: left;
+	}
+
+	.item p {
+		max-width: 380px;
+	}
+
+	.features {
+		padding: 0 152px;
+		margin: 0 auto;
 	}
 
 
